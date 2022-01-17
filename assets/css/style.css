@@ -1,0 +1,6 @@
+.countdown-timer {
+    width: 100%;
+    display: flex;
+    color: red;
+    justify-content: end;
+}
