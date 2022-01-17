@@ -4,3 +4,7 @@
     color: red;
     justify-content: end;
 }
+
+.answer-choices {
+    visibility: hidden;
+}
