@@ -16,28 +16,28 @@ let questions = [
         answer: 1
     },
     {
-        question: "What is a function?",
-        choice1: "A set of statements that performs a task or calculates a value.",
-        choice2: "An array",
-        choice3: "A truthy statment",
+        question: "Inside which HTML element do we put the Javascript?",
+        choice1: "<script>",
+        choice2: "<js>",
+        choice3: "<javascript",
         answer: 1
     }, {
-        question: "What is a function?",
-        choice1: "A set of statements that performs a task or calculates a value.",
-        choice2: "An array",
-        choice3: "A truthy statment",
+        question: "Where is the correct place to insert a JavaScript?",
+        choice1: "The <body> section.",
+        choice2: "The <head> section.",
+        choice3: "Both are correct.",
         answer: 1
     }, {
-        question: "What is a function?",
-        choice1: "A set of statements that performs a task or calculates a value.",
-        choice2: "An array",
-        choice3: "A truthy statment",
+        question: "How do you create a function in Javascript?",
+        choice1: "function myFunction()",
+        choice2: "function = myFunction()",
+        choice3: "function:myFunction()",
         answer: 1
     }, {
-        question: "What is a function?",
-        choice1: "A set of statements that performs a task or calculates a value.",
-        choice2: "An array",
-        choice3: "A truthy statment",
+        question: "How do you call a function?",
+        choice1: "myFunction()",
+        choice2: "call myFunction()",
+        choice3: "callFunction myFunction()",
         answer: 1
     },
 ]

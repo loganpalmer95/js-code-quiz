@@ -1,8 +1,20 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+  }
+
 .countdown-timer {
     width: 100%;
     display: flex;
-    color: red;
+    color: rgb(87, 188, 255);
     justify-content: end;
+}
+
+.quiz-score {
+    color: rgb(87, 188, 255);
+}
+.quiz-info {
+    color: rgb(87, 188, 255);
 }
 
 .answer-choices {
@@ -12,6 +24,7 @@
 .header-text {
     display: flex;
     justify-content: center;
+    color: rgb(87, 188, 255);
 }
 
 .quiz-info {
@@ -28,8 +41,31 @@
 
 .button-css {
     width: 35%;
+    background-color: rgb(87, 188, 255);
+    border-radius: 50%;
 }
 
 .user-info {
     visibility: hidden;
+}
+
+.answer-choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-form {
+    margin-bottom: 10px;
+    width: 25%;
+    color: rgb(87, 188, 255);
+    border: 3px solid rgb(87, 188, 255) 
 }
