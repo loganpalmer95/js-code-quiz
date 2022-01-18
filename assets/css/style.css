@@ -29,3 +29,7 @@
 .button-css {
     width: 35%;
 }
+
+.user-info {
+    visibility: hidden;
+}

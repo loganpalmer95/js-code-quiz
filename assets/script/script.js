@@ -2,39 +2,39 @@ var myInterval = null
 var duration = 59
 var timer = duration, seconds;
 var display = document.querySelector('#time');
-var currentQuestion = 0 
+var currentQuestion = 0
 var userScore = 0
 
 let answers = []
 
 let questions = [
     {
-        question: "What is a function?", 
+        question: "What is a function?",
         choice1: "A set of statements that performs a task or calculates a value.",
         choice2: "An array",
         choice3: "A truthy statment",
         answer: 1
     },
     {
-        question: "What is a function?", 
+        question: "What is a function?",
         choice1: "A set of statements that performs a task or calculates a value.",
         choice2: "An array",
         choice3: "A truthy statment",
         answer: 1
-    },    {
-        question: "What is a function?", 
+    }, {
+        question: "What is a function?",
         choice1: "A set of statements that performs a task or calculates a value.",
         choice2: "An array",
         choice3: "A truthy statment",
         answer: 1
-    },    {
-        question: "What is a function?", 
+    }, {
+        question: "What is a function?",
         choice1: "A set of statements that performs a task or calculates a value.",
         choice2: "An array",
         choice3: "A truthy statment",
         answer: 1
-    },    {
-        question: "What is a function?", 
+    }, {
+        question: "What is a function?",
         choice1: "A set of statements that performs a task or calculates a value.",
         choice2: "An array",
         choice3: "A truthy statment",
@@ -52,13 +52,13 @@ window.onload = function () {
     }
     var answer1 = document.getElementById("choice-1")
     answer1.addEventListener("click", () => answer1Clicked(answer1));
-    function answer1Clicked(button){
+    function answer1Clicked(button) {
         answers.push(1);
         if (1 != questions[currentQuestion].answer) {
             reduceTime();
         }
         else {
-        addScore()
+            addScore()
         }
         currentQuestion++
         startQuiz();
@@ -66,28 +66,28 @@ window.onload = function () {
 
     var answer2 = document.getElementById("choice-2")
     answer2.addEventListener("click", () => answer2Clicked(answer2));
-    function answer2Clicked(button){
+    function answer2Clicked(button) {
         answers.push(2);
         if (2 != questions[currentQuestion].answer) {
             reduceTime();
         }
         else {
             addScore()
-            }
+        }
         currentQuestion++
         startQuiz();
     }
 
     var answer3 = document.getElementById("choice-3")
     answer3.addEventListener("click", () => answer3Clicked(answer3));
-    function answer3Clicked(button){
+    function answer3Clicked(button) {
         answers.push(3);
         if (3 != questions[currentQuestion].answer) {
             reduceTime();
         }
         else {
             addScore()
-            }
+        }
         currentQuestion++
         startQuiz();
     }
@@ -112,12 +112,17 @@ function startTimer(display) {
 function startQuiz() {
     if (currentQuestion > questions.length - 1) {
         window.alert("Quiz is finished!")
+        endTimer();
+        currentQuestion = 0
+        document.getElementById("user-input").style.visibility = "visible";
+        document.getElementById("answer-view").style.visibility = "hidden";
+        saveScore();
         return;
     }
-    
+
     var mainText = document.getElementById("main-text")
     mainText.textContent = questions[currentQuestion].question
-    
+
     var choice1 = document.getElementById("choice-1")
     choice1.textContent = questions[currentQuestion].choice1
     var choice2 = document.getElementById("choice-2")
@@ -132,7 +137,6 @@ function showAnswers() {
 
 function endTimer() {
     clearInterval(myInterval)
-    window.alert("Time is up!")
 }
 
 function reduceTime() {
@@ -140,9 +144,32 @@ function reduceTime() {
 }
 
 function addScore() {
-    userScore = userScore + 25
+    userScore = userScore + 20
     var scoreView = document.getElementById("score-view")
-    scoreView.textContent = userScore
+    scoreView.textContent = "User Score: " + userScore
+}
+
+function saveScore() {
+    document.getElementById("high-score-input")
+    var scoreSave = document.getElementById("score-save")
+    scoreSave.addEventListener("click", () => scoreSaveClicked(scoreSave));
+    function scoreSaveClicked(button) {
+        console.log("here")
+        var initialsInput = document.getElementById("high-score-input")
+        var userId = initialsInput.textContent
+        var myStorage = window.localStorage;
+        myStorage.setItem(userId, userScore)
+        userScore = 0
+        var scoreView = document.getElementById("score-view")
+        scoreView.textContent = "User Score: " + userScore
+        showIntro();
+    }
+}
+
+function showIntro() {
+    document.getElementById("start-view").style.visibility = "visible";
+    document.getElementById("user-input").style.visibility = "hidden";
+    document.getElementById("main-text").textContent = "Welcome to the Javascript Quiz!"
 }
 
 // Save user input and high score at end of questions
