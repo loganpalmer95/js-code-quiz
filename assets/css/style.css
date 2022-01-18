@@ -8,3 +8,24 @@
 .answer-choices {
     visibility: hidden;
 }
+
+.header-text {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: center;
+}
+
+.starter-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-css {
+    width: 35%;
+}

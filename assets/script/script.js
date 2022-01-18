@@ -2,6 +2,10 @@ var myInterval = null
 var duration = 59
 var timer = duration, seconds;
 var display = document.querySelector('#time');
+var currentQuestion = 0 
+var userScore = 0
+
+let answers = []
 
 let questions = [
     {
@@ -46,6 +50,47 @@ window.onload = function () {
         startQuiz();
         showAnswers();
     }
+    var answer1 = document.getElementById("choice-1")
+    answer1.addEventListener("click", () => answer1Clicked(answer1));
+    function answer1Clicked(button){
+        answers.push(1);
+        if (1 != questions[currentQuestion].answer) {
+            reduceTime();
+        }
+        else {
+        addScore()
+        }
+        currentQuestion++
+        startQuiz();
+    }
+
+    var answer2 = document.getElementById("choice-2")
+    answer2.addEventListener("click", () => answer2Clicked(answer2));
+    function answer2Clicked(button){
+        answers.push(2);
+        if (2 != questions[currentQuestion].answer) {
+            reduceTime();
+        }
+        else {
+            addScore()
+            }
+        currentQuestion++
+        startQuiz();
+    }
+
+    var answer3 = document.getElementById("choice-3")
+    answer3.addEventListener("click", () => answer3Clicked(answer3));
+    function answer3Clicked(button){
+        answers.push(3);
+        if (3 != questions[currentQuestion].answer) {
+            reduceTime();
+        }
+        else {
+            addScore()
+            }
+        currentQuestion++
+        startQuiz();
+    }
 };
 
 function hideIntro() {
@@ -65,7 +110,11 @@ function startTimer(display) {
 }
 
 function startQuiz() {
-    var currentQuestion = 0 
+    if (currentQuestion > questions.length - 1) {
+        window.alert("Quiz is finished!")
+        return;
+    }
+    
     var mainText = document.getElementById("main-text")
     mainText.textContent = questions[currentQuestion].question
     
@@ -89,3 +138,13 @@ function endTimer() {
 function reduceTime() {
     timer = timer - 5
 }
+
+function addScore() {
+    userScore = userScore + 25
+    var scoreView = document.getElementById("score-view")
+    scoreView.textContent = userScore
+}
+
+// Save user input and high score at end of questions
+// At end of quiz have ability to start over and view high scores and username
+// Add styles
